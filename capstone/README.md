@@ -5,6 +5,8 @@ This project is a task management app called "Tasker". This app is distinct from
 
 Firstly, with this app you can create a task which is composed of subtasks hence, breaking down a large task into small and doable chunks. secondly, you can categorize and prioritize these tasks you created based on their importance and urgency. This application is also mobile responsive.
 
+🎥 **Demo Video**: [Capstone Project Demo](https://youtu.be/tPgiXyVhU0U)
+
 ![Alt text](web_app_images/index_page.png)
 
 ## ⚙️ Distinctiveness and Complexity
