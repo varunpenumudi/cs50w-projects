@@ -1,0 +1,30 @@
+{% extends "tasker/layout.html" %}
+
+{% block title %} login {% endblock %}
+
+{% block body %}
+<div id="app" class="border rounded bg-white" style="padding-left: 6rem; padding-right: 6rem">
+    <h1 class="mb-4"> Login </h1>
+
+    {% if message %}
+      <div class="alert alert-danger my-4" role="alert">
+        {{ message }}
+      </div>
+    {% endif %}
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="username" class="form-label"> Username</label>
+          <input required type="text" id="username" name="username" placeholder="User Name" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input required type="password" name="password" id="password" class="form-control" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-dark mt-2"> Login </button>
+    </form>
+
+    <div class="text-center text-small text-muted"> Don't have an account yet? <a href="{% url 'register' %}">Register here</a> </div>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'tasker/layout.html' %}
+{% load static %}
+
+{% block title %} Tasker {% endblock %}
+
+{% block script %}
+    <script src="{% static 'tasker/index.js' %}"></script>
+{% endblock %}
+
+{% block body %} 
+    <div id="app" class="border bg-white rounded">
+        <h1 class="mb-4"> Tasks </h1>
+
+        <div id="taskboard" class="w-100" data-page="{{ page }}" >
+        </div>
+    </div>
+{% endblock %}

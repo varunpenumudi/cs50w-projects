@@ -1,0 +1,74 @@
+{% extends 'tasker/layout.html' %}
+
+{% block title %} Profile {% endblock %}
+
+{% block body %}
+<div id="app" class="border rounded bg-white">
+    <h1 class="text-capitalize mb-3"> {{ request.user.username }} </h1>
+
+    <div class="rounded border border-dark p-3 my-3 mb-4">
+        <h4 class="mb-4"> User Details </h4>
+        <div class="d-flex flex-row mb-1">
+            <h5 class="w-25"> Name: </h5>
+            <div class="w-50 text-capitalize"> {{ request.user.username }} </div>
+        </div>
+
+        <div class="d-flex flex-row mb-1">
+            <h5 class="w-25"> Email: </h5>
+            <div class="w-50"> {{ request.user.email }} </div>
+        </div>
+    </div>
+
+    <!-- All tasks  -->
+    <div class="rounded border border-secondary p-3 my-3 mb-4">
+        <h4 class="mb-1"> All tasks </h4>
+
+        <div class="d-flex flex-row">
+            <div class="d-flex flex-column align-items-center w-50">
+                <h4> {{ completed_count }} </h4>
+                <h5> Tasks completed </h5>
+            </div>
+            <div class="d-flex flex-column align-items-center w-50">
+                <h4> {{ request.user.tasks.count }} </h4>
+                <h5> Total Tasks </h5>
+            </div>
+        </div>
+    </div>
+
+    <!-- Priority Tasks Table -->
+    <div class="p-3 rounded border border-success">
+        <h4 class="mb-4"> Tasks By Priority </h4>
+        
+        <table class="table border rounded">
+            <thead>
+                <th scope="col" class="text-center"> Task Priority </th>
+                <th scope="col" class="text-center"> Completed Tasks </th>
+                <th scope="col" class="text-center"> Total Tasks </th>
+            </thead>
+            <tbody>
+                <tr scope="row">
+                    <td scope="col" class="table-success text-center"> Important and Urgent </td>
+                    <td scope="col" class="text-center"> {{ priority1_completed_tasks_count }} </td>
+                    <td scope="col" class="text-center"> {{ priority1_tasks_count }} </td>
+                </tr>
+                <tr scope="row">
+                    <td scope="col" class="table-primary text-center"> Important and not Urgent </td>
+                    <td scope="col" class="text-center"> {{ priority2_completed_tasks_count }} </td>
+                    <td scope="col" class="text-center"> {{ priority2_tasks_count }} </td>
+                </tr>
+                <tr scope="row">
+                    <td scope="col" class="table-warning text-center"> not Important and Urgent </td>
+                    <td scope="col" class="text-center"> {{ priority3_completed_tasks_count }} </td>
+                    <td scope="col" class="text-center"> {{ priority3_tasks_count }} </td>
+                </tr>
+                <tr scope="row">
+                    <td scope="col" class="table-danger text-center"> not Important and not Urgent </td>
+                    <td scope="col" class="text-center"> {{ priority4_completed_tasks_count }} </td>
+                    <td scope="col" class="text-center"> {{ priority4_tasks_count }} </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+</div>
+{% endblock %}
