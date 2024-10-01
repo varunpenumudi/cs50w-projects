@@ -14,6 +14,6 @@ Here are brief descriptions for each CS50W project.
 
 4. **[Mail:](https://cs50.harvard.edu/web/2020/projects/3/)** A single-page email client that interacts with an API to send, receive, and organize emails. Built with JavaScript, HTML, and CSS.
 
-5. **[Network:](https://cs50.harvard.edu/web/2020/projects/3/)** A social media platform where users can post, follow others, and like posts. Features include user profiles, pagination, and editing posts.
+5. **[Network:](https://cs50.harvard.edu/web/2020/projects/4/)** A social media platform where users can post, follow others, and like posts. Features include user profiles, pagination, and editing posts.
 
-6. **[Capstone(Not completed yet):](https://cs50.harvard.edu/web/2020/projects/5/)** The final project, where you independently create a web application of your choosing, demonstrating the concepts learned throughout the course. I have created a Task Management app with django and javascript
+6. **[Capstone:](https://cs50.harvard.edu/web/2020/projects/final/)** The final project, where you independently create a web application of your choosing, demonstrating the concepts learned throughout the course. I have created a Task Management app called "Tasker" using Django and Javascript
