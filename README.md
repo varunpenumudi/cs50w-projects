@@ -16,4 +16,4 @@ Here are brief descriptions for each CS50W project.
 
 5. **[Network:](https://cs50.harvard.edu/web/2020/projects/3/)** A social media platform where users can post, follow others, and like posts. Features include user profiles, pagination, and editing posts.
 
-6. **[Capstone(Not completed yet):](https://cs50.harvard.edu/web/2020/projects/5/)** The final project, where you independently create a web application of your choosing, demonstrating the concepts learned throughout the course.
+6. **[Capstone(Not completed yet):](https://cs50.harvard.edu/web/2020/projects/5/)** The final project, where you independently create a web application of your choosing, demonstrating the concepts learned throughout the course. I have created a Task Management app with django and javascript
