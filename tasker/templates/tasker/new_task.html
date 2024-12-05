@@ -1,0 +1,66 @@
+{% extends 'tasker/layout.html' %}
+{% load static %}
+
+
+{% block title %} New Task {% endblock %}
+{% block script %}
+  <script src="{% static 'tasker/newtask.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+<div id="app" class="border rounded bg-white">
+
+    <h1 class="mb-4"> New Task </h1>
+
+    <form action="" method="post" id="new-task-form">
+        {% csrf_token %}
+        <!-- Task Field -->
+        <div class="mb-3">
+          <label for="task" class="form-label"> Task </label>
+          <input required type="text" id="task" name="task" placeholder="Task" class="form-control">
+        </div>
+
+        <!-- Description Field -->
+        <div class="mb-3">
+          <label for="description" class="form-label"> Description </label>
+          <textarea required class="form-control" id="description" name="description" rows="2" placeholder="Description"></textarea>
+        </div>
+
+        <!-- Task Category  -->
+        <div class="mb-3">
+          <h4 class="mb-3"> Priority </h4>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="important" value="important">
+            <label class="form-check-label" for="important"> Important </label>
+          </div>
+          <div class="form-check form-check-inline ml-3">
+            <input class="form-check-input" type="checkbox" id="urgent" value="urgent">
+            <label class="form-check-label" for="urgent"> Urgent </label>
+          </div>
+        </div>
+
+        <!-- Subtasks Fields -->
+        <div id="subtasks" class="mb-1">
+          <h4 class="mb-3"> Subtasks </h4>
+
+          <div class="form-row">
+            <!-- Subtask field -->
+            <div class="col-sm-6 mb-3">
+              <input type="text" class="form-control subtask" placeholder="Subtask" required>
+            </div>
+            <!-- Delete Button -->
+            <div class="col-sm-4 mb-3">
+              <button name="delete" class="delete btn btn-outline-secondary" class="mb-3"> Delete </button>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="mb-4">
+          <button id="addtask" name="addtask" class="btn btn-outline-secondary" class="mb-3"> Add Subtask </button>
+        </div>
+
+        <button type="submit" class="btn btn-dark"> Create Task </button>
+    </form>
+</div>
+{% endblock %}

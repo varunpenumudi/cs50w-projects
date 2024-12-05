@@ -1,0 +1,51 @@
+{% extends 'tasker/layout.html' %}
+
+{% block title %} Priority Matrix {% endblock %}
+
+{% block body %}
+<div id="app" class="border rounded bg-white">
+    <h1 class="mb-4"> Priority Matrix </h1>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm px-3 py-4 border rounded m-2 text-center bg-success text-white">
+                    <a href="{% url 'show_priority_tasks' 1 %}" class="link-box">
+                        <div>
+                            <h5> {{ priority1_cnt }} / {{ request.user.tasks.count }}</h5>
+                            <h5> Important and Urgent</h5>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm px-3 py-4 border rounded m-2 text-center bg-primary text-light">
+                    <a href="{% url 'show_priority_tasks' 2 %}" class="link-box">
+                        <div>
+                            <h5> {{ priority2_cnt }} / {{ request.user.tasks.count }}</h5>
+                            <h5> Important and Not Urgent</h5>
+                        </div>
+                    </a>
+                </div>
+    
+                <div class="w-100"></div>
+    
+                <div class="col-sm px-3 py-4 border rounded m-2 text-center bg-warning text-dark">
+                    <a href="{% url 'show_priority_tasks' 3 %}" class="link-box">
+                        <div>
+                            <h5> {{ priority3_cnt }} / {{ request.user.tasks.count }}</h5>
+                            <h5> Not Important and Urgent</h5>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm px-3 py-4 border rounded m-2 text-center bg-danger text-white">
+                    <a href="{% url 'show_priority_tasks' 4 %}" class="link-box">
+                        <div>
+                            <h5> {{ priority4_cnt }} / {{ request.user.tasks.count }}</h5>
+                            <h5> Not Important and Not Urgent</h5>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'tasker/layout.html' %}
+{% load static %}
+
+{% block title %} Priority {{ priority }} tasks {% endblock %}
+
+{% block script %}
+    <script src="{% static 'tasker/show_priority_tasks.js' %}"></script>
+{% endblock %}
+
+{% block body %} 
+    <div id="app" class="border bg-white rounded">
+        <h1 class="mb-4"> {{ page_title }} </h1>
+
+        <div id="taskboard" class="w-100" data-priority="{{priority}}" data-page="{{ page }}">
+        </div>
+    </div>
+{% endblock %}

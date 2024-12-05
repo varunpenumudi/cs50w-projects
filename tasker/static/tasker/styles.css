@@ -1,0 +1,69 @@
+#app {
+    padding: 2rem;
+    margin: 2rem auto;
+}
+
+.link-box {
+    color: inherit;
+    text-decoration: none;
+}
+
+.link-box:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+.progress-div {
+    margin: auto 3% auto auto;
+}
+
+.white-cover {
+    transform-origin: 50% 50%;
+    transform: rotate(-90deg);
+    animation: progress 1s linear forwards;
+}
+
+svg text {
+    fill: black;
+    font-size: 0.68rem;
+    text-anchor: middle;
+}
+
+.subtask-checkbox {
+    display: flex;
+    align-items: center;
+}
+
+input[type="checkbox"] {
+	height: 1.3em;
+	width: 1.3em;
+}
+
+.form-check *, .subtask-checkbox *{
+    cursor: pointer;
+}
+
+@keyframes progress {
+    from {
+        stroke-dashoffset: 0;
+    }
+}
+
+@media (min-width: 991px) {
+    #app {
+        width: 50vw;
+    }
+}
+
+@media (max-width: 990px) and (min-width: 700px) {
+    #app {
+        width: 75vw;
+    }
+}
+
+@media (max-width: 699px) {
+    #app {
+        width: 90vw;
+        border-radius: 20px;
+    }
+}
