@@ -1,0 +1,65 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block script %}
+    <script src="{% static 'network/post.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+    <h1 class="mb-4"> All Posts </h1>
+
+    <div id="all-posts">
+        {% for post in posts %} 
+            <div class="post" data-post_id={{post.id}}>
+
+                <div class="content-above-div" >
+                    <a class="font-weight-bolder text-capitalize" href="{% url 'user_profile' post.poster.username %}"> {{ post.poster }} </a>
+
+                    <!-- show edit post button only if current user is poster -->
+                    {% if request.user == post.poster %}
+                        <button class="edit-btn btn btn-primary btn-sm" data-update_url="{% url 'update_post' post.id %}"> Edit Post</button>
+                    {% endif %}
+
+                </div>
+
+                <div class="content"> {{ post.content }} </div>
+
+                <div class="content-below-div">
+                    <div class="likes"> 
+                        {% if user.is_authenticated %}
+                            {% if request.user in post.liked_users.all %}
+                                <i class="bi bi-suit-heart-fill" data-like_url="{% url 'like_post' post.id %}"></i> 
+                            {% else %}
+                                <i class="bi bi-suit-heart" data-like_url="{% url 'like_post' post.id %}"></i> 
+                            {% endif %}
+                        {% else %}
+                            <i class="bi bi-suit-heart text-muted"></i>
+                        {% endif %}
+                            <span class="likes-count"> {{ post.liked_users.count }} </span>
+                    </div>
+                    <div class="text-muted"> {{post.date_created}}</div>
+                </div>
+                
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Pagination -->
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            {% if posts.has_previous %}
+                <li class="page-item"><a class="page-link" href="?page={{posts.previous_page_number}}">Previous</a></li>
+            {% else %}
+                <li class="page-item disabled"><a class="page-link">Previous</a></li>
+            {% endif %}
+
+            <li class="page-item active"><a class="page-link"> Page {{ posts.number }} </a></li>
+
+            {% if posts.has_next %}
+                <li class="page-item"><a class="page-link" href="?page={{posts.next_page_number}}">Next</a></li>
+            {% else %}
+                <li class="page-item disabled"><a class="page-link">Next</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+{% endblock %}
